@@ -10,6 +10,8 @@
 		58C6624F71FD2474E36D8B4B /* Pods_JDGChatModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D7B9B8F7CFF710A8BAB6FC /* Pods_JDGChatModule.framework */; };
 		AD741FE61E7F90B90083DC20 /* JDGChatModule.h in Headers */ = {isa = PBXBuildFile; fileRef = AD741FE41E7F90B90083DC20 /* JDGChatModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD741FED1E7F99E70083DC20 /* JDGChatModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD741FEC1E7F99E70083DC20 /* JDGChatModule.swift */; };
+		AD741FF21E7FEE320083DC20 /* JDGChatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AD741FF01E7FEE320083DC20 /* JDGChatKit.h */; };
+		AD741FF31E7FEE320083DC20 /* JDGChatKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AD741FF11E7FEE320083DC20 /* JDGChatKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		AD741FE41E7F90B90083DC20 /* JDGChatModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDGChatModule.h; sourceTree = "<group>"; };
 		AD741FE51E7F90B90083DC20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD741FEC1E7F99E70083DC20 /* JDGChatModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDGChatModule.swift; sourceTree = "<group>"; };
+		AD741FF01E7FEE320083DC20 /* JDGChatKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDGChatKit.h; sourceTree = "<group>"; };
+		AD741FF11E7FEE320083DC20 /* JDGChatKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDGChatKit.m; sourceTree = "<group>"; };
 		EF13CD73244AA9E52E6AD376 /* Pods-JDGChatModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDGChatModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-JDGChatModule/Pods-JDGChatModule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +70,8 @@
 				AD741FEC1E7F99E70083DC20 /* JDGChatModule.swift */,
 				AD741FE41E7F90B90083DC20 /* JDGChatModule.h */,
 				AD741FE51E7F90B90083DC20 /* Info.plist */,
+				AD741FF01E7FEE320083DC20 /* JDGChatKit.h */,
+				AD741FF11E7FEE320083DC20 /* JDGChatKit.m */,
 			);
 			path = JDGChatModule;
 			sourceTree = "<group>";
@@ -87,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD741FE61E7F90B90083DC20 /* JDGChatModule.h in Headers */,
+				AD741FF21E7FEE320083DC20 /* JDGChatKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD741FF31E7FEE320083DC20 /* JDGChatKit.m in Sources */,
 				AD741FED1E7F99E70083DC20 /* JDGChatModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +321,7 @@
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = JDGChatModule/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jefrydagucci.JDGChatModule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -335,6 +344,7 @@
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = JDGChatModule/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jefrydagucci.JDGChatModule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
