@@ -10,7 +10,6 @@
 
 @implementation JDGChatKit
 
-
 + (instancetype)shared{
     static id sharedInstance;
     if(!sharedInstance){

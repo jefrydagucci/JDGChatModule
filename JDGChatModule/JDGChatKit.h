@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "XMPPReconnect.h"
-#import "XMPPRoster.h"
-#import "XMPPStream.h"
-#import "XMPPRosterMemoryStorage.h"
-
+#import <XMPPFramework/XMPPFramework.h>
 
 @protocol JDGChatKitDelegate <NSObject>
 

@@ -6,7 +6,7 @@
 //  Copyright © 2017 jefrydagucci. All rights reserved.
 //
 
-import "JDGChatKit.h"
+#import "JDGChatKit.h"
 
 #import <UIKit/UIKit.h>
 
