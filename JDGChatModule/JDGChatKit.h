@@ -31,4 +31,15 @@
 @property (nonatomic, retain) NSString *username;
 @property (nonatomic, assign) id<JDGChatKitDelegate> delegate;
 
++ (instancetype)shared;
+
+#pragma mark - connect
+- (BOOL)connect:(NSString *)jid;
+
+- (void)disconnect;
+
+- (void)goOnline;
+
+- (void)goOffline;
+
 @end

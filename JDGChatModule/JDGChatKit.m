@@ -10,6 +10,17 @@
 
 @implementation JDGChatKit
 
+
++ (instancetype)shared{
+    static id sharedInstance;
+    if(!sharedInstance){
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            sharedInstance = [[[self class] alloc]init];
+        });
+    }
+    return sharedInstance;
+}
 - (void)setupStream{
     xmppStream = [[XMPPStream alloc] init];
     
