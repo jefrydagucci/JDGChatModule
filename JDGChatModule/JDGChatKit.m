@@ -15,7 +15,8 @@
     if(!sharedInstance){
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            sharedInstance = [[[self class] alloc]init];
+            sharedInstance = [[[self class] alloc] init];
+            [sharedInstance setupStream];
         });
     }
     return sharedInstance;
@@ -70,7 +71,7 @@
 
 #pragma mark - connect
 - (BOOL)connect:(NSString *)jid{
-    if (![xmppStream isDisconnected]) {
+    if ([xmppStream isConnected]) {
         return YES;
     }
     [xmppStream setMyJID:[XMPPJID jidWithString:jid]];
@@ -142,7 +143,6 @@
         NSError *error;
         if (![xmppStream authenticateWithPassword:pass error:&error]){
             NSLog(@"Error: %@", error);
-            
         }
     }
 }

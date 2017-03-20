@@ -23,7 +23,6 @@
     XMPPRosterMemoryStorage *xmppRosterStorage;
 }
 
-@property (nonatomic, retain) NSString *username;
 @property (nonatomic, assign) id<JDGChatKitDelegate> delegate;
 
 + (instancetype)shared;
