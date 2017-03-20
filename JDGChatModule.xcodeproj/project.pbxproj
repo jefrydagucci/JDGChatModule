@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58C6624F71FD2474E36D8B4B /* Pods_JDGChatModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D7B9B8F7CFF710A8BAB6FC /* Pods_JDGChatModule.framework */; };
 		AD741FE61E7F90B90083DC20 /* JDGChatModule.h in Headers */ = {isa = PBXBuildFile; fileRef = AD741FE41E7F90B90083DC20 /* JDGChatModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD741FED1E7F99E70083DC20 /* JDGChatModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD741FEC1E7F99E70083DC20 /* JDGChatModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,7 @@
 		AD741FE11E7F90B90083DC20 /* JDGChatModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JDGChatModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD741FE41E7F90B90083DC20 /* JDGChatModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDGChatModule.h; sourceTree = "<group>"; };
 		AD741FE51E7F90B90083DC20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD741FEC1E7F99E70083DC20 /* JDGChatModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDGChatModule.swift; sourceTree = "<group>"; };
 		EF13CD73244AA9E52E6AD376 /* Pods-JDGChatModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JDGChatModule.release.xcconfig"; path = "Pods/Target Support Files/Pods-JDGChatModule/Pods-JDGChatModule.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 		AD741FE31E7F90B90083DC20 /* JDGChatModule */ = {
 			isa = PBXGroup;
 			children = (
+				AD741FEC1E7F99E70083DC20 /* JDGChatModule.swift */,
 				AD741FE41E7F90B90083DC20 /* JDGChatModule.h */,
 				AD741FE51E7F90B90083DC20 /* Info.plist */,
 			);
@@ -121,6 +124,7 @@
 				TargetAttributes = {
 					AD741FE01E7F90B90083DC20 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -190,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD741FED1E7F99E70083DC20 /* JDGChatModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 56F16CEC8492506A03706C0A /* Pods-JDGChatModule.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -310,6 +316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jefrydagucci.JDGChatModule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -318,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF13CD73244AA9E52E6AD376 /* Pods-JDGChatModule.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -352,6 +360,7 @@
 				AD741FEB1E7F90B90083DC20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

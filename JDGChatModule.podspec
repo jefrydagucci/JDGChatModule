@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "JDGChatModule"
   s.version      = "1.0"
-  s.summary      = "JDGChatModule is a module using XMPP framework and JSQMessagesViewController”
+  s.summary      = "JDGChatModule is a module using XMPP framework and JSQMessagesViewController"
 
   s.description  = <<-DESC
 
@@ -20,11 +20,11 @@ JDGChatModule is chat module implementing XMPP framework and JSQMessagesViewCont
   s.source       = { :git => "https://github.com/jefrydagucci/JDGChatModule.git", :tag => "v#{s.version}" }
   s.social_media_url = "http://instagram.com/jefrydagucci"
 
-  s.source_files  = "Sources/*.{swift}"
+  s.source_files  = "JDGChatModule/*.{swift}"
 
   s.requires_arc = true
 
-  s.dependency "XMPPFramework", "~> 3.7”
-  s.dependency "JSQMessagesViewController", "~> 7.3”
+  s.dependency "XMPPFramework", "~> 3.7"
+  s.dependency "JSQMessagesViewController", "~> 7.3"
 
 end
