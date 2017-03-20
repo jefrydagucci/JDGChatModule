@@ -12,7 +12,7 @@
 @protocol JDGChatKitDelegate <NSObject>
 
 @optional
-- (NSString *)passwordForAuthentication;
+- (NSString *)passwordForAuthentication:(XMPPJID *)jid;
 
 
 @end

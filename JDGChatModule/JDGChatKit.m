@@ -137,11 +137,12 @@
 }
 
 - (void)xmppStreamDidConnect:(XMPPStream *)sender{
-    if([_delegate respondsToSelector:@selector(passwordForAuthentication)]){
-        NSString *pass = [_delegate passwordForAuthentication];
+    if([_delegate respondsToSelector:@selector(passwordForAuthentication:)]){
+        NSString *pass = [_delegate passwordForAuthentication:sender.myJID];
         NSError *error;
         if (![xmppStream authenticateWithPassword:pass error:&error]){
             NSLog(@"Error: %@", error);
+            
         }
     }
 }
