@@ -1,0 +1,18 @@
+Pods/
+
+# user-specific XCode stuff
+*.pbxuser
+*.perspectivev3
+*.xcuserdatad
+*.xccheckout
+*.xcworkspacedata
+*.xcworkspace
+*.xcscheme
+
+# temp nibs and swap files
+*~.nib
+*.swp
+*.orig
+
+*.DS_Store
+Podfile.lock
