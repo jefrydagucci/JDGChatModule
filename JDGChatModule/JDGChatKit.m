@@ -144,18 +144,13 @@
     
 }
 
-- (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq
-{
+- (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq{
     
     NSLog(@"receive IQ %@", iq);
     return NO;
 }
 
-- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
-{
-    
-    // A simple example of inbound message handling.
-    
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
     if ([message isChatMessageWithBody]){
         XMPPUserMemoryStorageObject *user = [xmppRosterStorage userForJID:[message from]];
         NSString *displayName = [user displayName];
