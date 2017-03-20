@@ -20,7 +20,7 @@ JDGChatModule is chat module implementing XMPP framework and JSQMessagesViewCont
   s.source       = { :git => "https://github.com/jefrydagucci/JDGChatModule.git", :tag => "v#{s.version}" }
   s.social_media_url = "http://instagram.com/jefrydagucci"
 
-  s.source_files  = "JDGChatModule/*.{swift}"
+  s.source_files  = "JDGChatModule", "JDGChatModule/*.{swift}"
 
   s.requires_arc = true
 
