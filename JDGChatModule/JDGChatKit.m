@@ -162,23 +162,8 @@
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
-    if ([message isChatMessageWithBody]){
-        XMPPUserMemoryStorageObject *user = [xmppRosterStorage userForJID:[message from]];
-        NSString *displayName = [user displayName];
-        NSString *body = [[message elementForName:@"body"] stringValue];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"XMPPGetMessage" object:nil userInfo:@{@"user": message.from.user}];
-        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive){
-            
-        }
-        else{
-            // We are not active, so use a local notification instead
-            UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-            localNotification.alertAction = @"Ok";
-            localNotification.alertBody = [NSString stringWithFormat:@"From: %@\n\n%@",displayName,body];
-            
-            [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
-        }
+    if ([_delegate respondsToSelector:@selector(jdg_chatKit:didReceiveMessage:stream:)]){
+        [_delegate jdg_chatKit:self didReceiveMessage:message stream:sender];
     }
 }
 

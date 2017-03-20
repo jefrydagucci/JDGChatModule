@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <XMPPFramework/XMPPFramework.h>
 
+@class JDGChatKit;
 @protocol JDGChatKitDelegate <NSObject>
-
 @optional
 - (NSString *)passwordForAuthentication:(XMPPJID *)jid;
+- (void)jdg_chatKit:(JDGChatKit *)kit didReceiveMessage:(XMPPMessage *)message stream:(XMPPStream *)stream;
 
 
 @end
@@ -35,5 +36,8 @@
 - (void)goOnline;
 
 - (void)goOffline;
+
+#pragma mark - message
+- (void)sendMessage:(NSString *)message toID:(NSString *)jid;
 
 @end
