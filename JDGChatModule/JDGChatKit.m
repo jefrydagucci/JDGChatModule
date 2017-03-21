@@ -170,6 +170,7 @@
     if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:willSendMessage:stream:)]){
         [_streamDelegate jdg_chatKit:self willSendMessage:message stream:sender];
     }
+    return message;
 }
 
 - (void)xmppStream:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message{
@@ -188,6 +189,7 @@
     if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:willReceiveMessage:stream:)]){
         [_streamDelegate jdg_chatKit:self willReceiveMessage:message stream:sender];
     }
+    return message;
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence{
