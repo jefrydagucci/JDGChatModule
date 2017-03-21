@@ -8,6 +8,11 @@
 
 #import "JDGChatKit.h"
 
+@interface JDGChatKit ()
+<XMPPStreamDelegate>
+
+@end
+
 @implementation JDGChatKit
 
 + (instancetype)shared{
@@ -152,7 +157,7 @@
 }
 
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error{
-    
+    //JDGChatKitBug
 }
 
 - (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq{
@@ -161,23 +166,40 @@
     return NO;
 }
 
+- (XMPPMessage *)xmppStream:(XMPPStream *)sender willSendMessage:(XMPPMessage *)message{
+    if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:willSendMessage:stream:)]){
+        [_streamDelegate jdg_chatKit:self willSendMessage:message stream:sender];
+    }
+}
+
+- (void)xmppStream:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message{
+    if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:didSendMessage:stream:)]){
+        [_streamDelegate jdg_chatKit:self didSendMessage:message stream:sender];
+    }
+}
+
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
-    if ([_delegate respondsToSelector:@selector(jdg_chatKit:didReceiveMessage:stream:)]){
-        [_delegate jdg_chatKit:self didReceiveMessage:message stream:sender];
+    if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:didReceiveMessage:stream:)]){
+        [_streamDelegate jdg_chatKit:self didReceiveMessage:message stream:sender];
+    }
+}
+
+- (XMPPMessage *)xmppStream:(XMPPStream *)sender willReceiveMessage:(XMPPMessage *)message{
+    if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:willReceiveMessage:stream:)]){
+        [_streamDelegate jdg_chatKit:self willReceiveMessage:message stream:sender];
     }
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence{
-
+    //JDGChatKitBug
 }
 
-- (void)xmppStream:(XMPPStream *)sender didReceiveError:(id)error
-{
-    
+- (void)xmppStream:(XMPPStream *)sender didReceiveError:(id)error{
+    //JDGChatKitBug
 }
 
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
-    
+    //JDGChatKitBug
 }
 
 #pragma mark XMPPRosterDelegate

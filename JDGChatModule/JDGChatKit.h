@@ -13,10 +13,21 @@
 @protocol JDGChatKitDelegate <NSObject>
 @optional
 - (NSString *)passwordForAuthentication:(XMPPJID *)jid;
+
+@end
+
+@protocol JDGChatKitStreamDelegate <NSObject>
+@optional
+
+- (void)jdg_chatKit:(JDGChatKit *)kit willReceiveMessage:(XMPPMessage *)message stream:(XMPPStream *)stream;
 - (void)jdg_chatKit:(JDGChatKit *)kit didReceiveMessage:(XMPPMessage *)message stream:(XMPPStream *)stream;
+
+- (void)jdg_chatKit:(JDGChatKit *)kit willSendMessage:(XMPPMessage *)message stream:(XMPPStream *)stream;
+- (void)jdg_chatKit:(JDGChatKit *)kit didSendMessage:(XMPPMessage *)message stream:(XMPPStream *)stream;
 
 
 @end
+
 @interface JDGChatKit : NSObject{
     XMPPStream *xmppStream;
     XMPPReconnect *xmppReconnect;
@@ -25,6 +36,7 @@
 }
 
 @property (nonatomic, assign) id<JDGChatKitDelegate> delegate;
+@property (nonatomic, assign) id<JDGChatKitStreamDelegate> streamDelegate;
 
 + (instancetype)shared;
 
