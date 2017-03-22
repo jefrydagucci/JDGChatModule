@@ -167,6 +167,7 @@
 }
 
 - (XMPPMessage *)xmppStream:(XMPPStream *)sender willSendMessage:(XMPPMessage *)message{
+    if (_streamDelegate == nil){ return message; }
     if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:willSendMessage:stream:)]){
         [_streamDelegate jdg_chatKit:self willSendMessage:message stream:sender];
     }
@@ -174,18 +175,21 @@
 }
 
 - (void)xmppStream:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message{
+    if (_streamDelegate == nil){ return; }
     if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:didSendMessage:stream:)]){
         [_streamDelegate jdg_chatKit:self didSendMessage:message stream:sender];
     }
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
+    if (_streamDelegate == nil){ return; }
     if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:didReceiveMessage:stream:)]){
         [_streamDelegate jdg_chatKit:self didReceiveMessage:message stream:sender];
     }
 }
 
 - (XMPPMessage *)xmppStream:(XMPPStream *)sender willReceiveMessage:(XMPPMessage *)message{
+    if (_streamDelegate == nil){ return message; }
     if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:willReceiveMessage:stream:)]){
         [_streamDelegate jdg_chatKit:self willReceiveMessage:message stream:sender];
     }
