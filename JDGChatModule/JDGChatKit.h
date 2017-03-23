@@ -19,6 +19,9 @@
 @protocol JDGChatKitStreamDelegate <NSObject>
 @optional
 
+- (void)jdg_chatKit:(JDGChatKit *)kit didAuthenticate:(XMPPStream *)stream;
+- (void)jdg_chatKit:(JDGChatKit *)kit didNotAuthenticate:(NSXMLElement *)error;
+
 - (void)jdg_chatKit:(JDGChatKit *)kit willReceiveMessage:(XMPPMessage *)message stream:(XMPPStream *)stream;
 - (void)jdg_chatKit:(JDGChatKit *)kit didReceiveMessage:(XMPPMessage *)message stream:(XMPPStream *)stream;
 

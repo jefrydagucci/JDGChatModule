@@ -153,11 +153,17 @@
 }
 
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
-    [self goOnline];
+    if (_streamDelegate == nil){ return; }
+    if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:didAuthenticate:)]){
+        [_streamDelegate jdg_chatKit:self didAuthenticate:sender];
+    }
 }
 
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error{
-    //JDGChatKitBug
+    if (_streamDelegate == nil){ return; }
+    if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:didNotAuthenticate:)]){
+        [_streamDelegate jdg_chatKit:self didNotAuthenticate:error];
+    }
 }
 
 - (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq{
