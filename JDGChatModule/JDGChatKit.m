@@ -68,9 +68,6 @@
     [_message addAttributeWithName:@"to" stringValue:jid];
     [_message addChild:body];
     
-    NSXMLElement * thread = [NSXMLElement elementWithName:@"thread" stringValue:@"SomeThreadName"];
-    [_message addChild:thread];
-    
     [xmppStream sendElement:_message];
 }
 
@@ -153,6 +150,7 @@
 }
 
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
+    [self goOnline];
     if (_streamDelegate == nil){ return; }
     if ([_streamDelegate respondsToSelector:@selector(jdg_chatKit:didAuthenticate:)]){
         [_streamDelegate jdg_chatKit:self didAuthenticate:sender];
