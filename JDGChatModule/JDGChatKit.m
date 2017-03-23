@@ -53,7 +53,7 @@
     [_message addChild:body];
     
     if (image) {
-        NSData *dataImg     = UIImagePNGRepresentation(image);
+        NSData *dataImg     = UIImageJPEGRepresentation(image, 0.4);
         NSString *imgStr    = [dataImg base64EncodedStringWithOptions:0];
         NSXMLElement *imgElement = [NSXMLElement elementWithName:[XMPPMessage attachmentKey]];
         [imgElement setStringValue:imgStr];
