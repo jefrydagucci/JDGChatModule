@@ -56,3 +56,18 @@
 - (void)sendMessage:(NSString *)message toID:(NSString *)jid;
 
 @end
+
+
+@interface XMPPMessage (JDGChatKitMessage)
+
+- (NSData *)imageAttachmentData;
+
+- (UIImage *)imageAttachment;
+
+@end
+
+@interface JDGChatKit (JDGChatKitMessage)
+
+- (void)sendMessage:(NSString *)message image:(UIImage *)image toID:(NSString *)jid;
+
+@end

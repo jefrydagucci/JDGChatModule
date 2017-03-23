@@ -8,6 +8,63 @@
 
 #import "JDGChatKit.h"
 
+@implementation XMPPMessage (JDGChatKitMessage)
+
++ (NSString *)attachmentKey{
+    return @"attachment";
+}
+
+- (NSString *)attachmentImageString{
+    return [[self elementForName:[XMPPMessage attachmentKey]] stringValue];
+}
+
+- (BOOL)hasImageAttachment{
+    return [self attachmentImageString] != nil;
+}
+
+- (UIImage *)imageAttachment{
+    if (![self hasImageAttachment]){
+        return nil;
+    }
+    NSData *imageData = [self imageAttachmentData];
+    UIImage *img = [[UIImage alloc]initWithData:imageData];
+    return img;
+}
+
+- (NSData *)imageAttachmentData{
+    if (![self hasImageAttachment]){
+        return nil;
+    }
+    NSData *imageData = [[NSData alloc]initWithBase64EncodedString:[self attachmentImageString] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    return imageData;
+}
+
+@end
+
+@implementation JDGChatKit (JDGChatKitMessage)
+
+- (void)sendMessage:(NSString *)message image:(UIImage *)image toID:(NSString *)jid{
+    NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
+    [body setStringValue:message];
+    
+    NSXMLElement *_message = [NSXMLElement elementWithName:@"message"];
+    [_message addAttributeWithName:@"type" stringValue:@"chat"];
+    [_message addAttributeWithName:@"to" stringValue:jid];
+    [_message addChild:body];
+    
+    if (image) {
+        NSData *dataImg     = UIImagePNGRepresentation(image);
+        NSString *imgStr    = [dataImg base64EncodedStringWithOptions:0];
+        NSXMLElement *imgElement = [NSXMLElement elementWithName:[XMPPMessage attachmentKey]];
+        [imgElement setStringValue:imgStr];
+        [_message addChild:imgElement];
+    }
+    
+    [xmppStream sendElement:_message];
+}
+
+@end
+
 @interface JDGChatKit ()
 <XMPPStreamDelegate>
 
