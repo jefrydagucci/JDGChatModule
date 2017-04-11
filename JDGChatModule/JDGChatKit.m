@@ -70,9 +70,9 @@
     [_message addAttributeWithName:@"to" stringValue:jid];
     
     if (elementName.length && text.length) {
-        NSXMLElement *imgElement = [NSXMLElement elementWithName:elementName];
-        [imgElement setStringValue:text];
-        [_message addChild:imgElement];
+        NSXMLElement *customElement = [NSXMLElement elementWithName:elementName];
+        [customElement setStringValue:text];
+        [_message addChild:customElement];
     }
     
     [xmppStream sendElement:_message];
