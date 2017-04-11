@@ -63,6 +63,21 @@
     [xmppStream sendElement:_message];
 }
 
+- (void)sendText:(NSString *)text withElementName:(NSString *)elementName toID:(NSString *)jid{
+    
+    NSXMLElement *_message = [NSXMLElement elementWithName:@"message"];
+    [_message addAttributeWithName:@"type" stringValue:@"chat"];
+    [_message addAttributeWithName:@"to" stringValue:jid];
+    
+    if (elementName.length && text.length) {
+        NSXMLElement *imgElement = [NSXMLElement elementWithName:elementName];
+        [imgElement setStringValue:text];
+        [_message addChild:imgElement];
+    }
+    
+    [xmppStream sendElement:_message];
+}
+
 @end
 
 @interface JDGChatKit ()

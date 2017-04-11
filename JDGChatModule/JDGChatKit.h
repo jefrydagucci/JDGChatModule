@@ -70,4 +70,6 @@
 
 - (void)sendMessage:(NSString *)message image:(UIImage *)image toID:(NSString *)jid;
 
+- (void)sendText:(NSString *)text withElementName:(NSString *)elementName toID:(NSString *)jid;
+
 @end
